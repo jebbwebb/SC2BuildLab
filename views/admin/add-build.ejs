@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <%- include('navbar.ejs') %>
+    <form class="build-form" action="/add-builds" method="POST">
+      <div class="form-control">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" />
+      </div>
+      <div class="form-control">
+        <label for="race">Your Race</label>
+        <input type="radio" name="race" value="terran" />Terran
+        <input type="radio" name="race" value="zerg" />Zerg
+        <input type="radio" name="race" value="protoss" />Protoss
+      </div>
+      <div class="form-control">
+        <label>Enemy Race</label>
+        <input type="radio" name="enemy" value="terran" />Terran
+        <input type="radio" name="enemy" value="zerg" />Zerg
+        <input type="radio" name="enemy" value="protoss" />Protoss
+      </div>
+      <div class="form-control">
+        <label for="enemy">Build Type</label>
+        <input type="radio" name="type" value="macro" />Macro
+        <input type="radio" name="type" value="timing-attack" />Timing Attack
+        <input type="radio" name="type" value="all-in" />All In
+        <input type="radio" name="type" value="cheese" />Cheese
+      </div>
+      <div class="form-control">
+        <label for="description">Build Order</label>
+        <textarea name="description" id="description" rows="5"></textarea>
+      </div>
+      <script>
+        var textarea = document.getElementById('description');
+
+        textarea.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter') {
+            console.log('yo');
+            e.preventDefault();
+
+            var start = this.selectionStart;
+            var end = this.selectionEnd;
+            var value = this.value;
+
+            this.value =
+              value.substring(0, start) + '\n' + value.substring(end);
+
+            this.selectionStart = this.selectionEnd = start + 1;
+          }
+        });
+      </script>
+
+      <button class="btn" type="submit">Add Build</button>
+    </form>
+  </body>
+</html>

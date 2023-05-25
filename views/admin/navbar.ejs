@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="nav-bar">
+      <div class="nav-logo"><h1>SC2 Build Order Database</h1></div>
+      <div class="nav-menu">
+        <ol>
+          <li><a href="/builds">Public Builds</a></li>
+          <li><a href="/add-builds">Create A Build</a></li>
+          <li><a href="/user-builds">View Your Builds</a></li>
+          <% if (loggedIn) { %>
+          <li>
+            <form action="/logout" method="POST">
+              <button type="submit">Logout</button>
+            </form>
+          </li>
+          <% } else { %>
+          <li><a href="/login">Login</a></li>
+          <% } %>
+        </ol>
+      </div>
+    </div>
+  </body>
+</html>

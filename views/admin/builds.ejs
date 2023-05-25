@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <body>
+        <%- include('navbar.ejs') %>
+
+            <main>
+                <% if (builds.length > 0) { %>
+                    <div class="grid">
+                        <% for (let build of builds) { %>
+                            <article class="card product-item">
+                                <header class="card__header">
+                                    <h1 class="product__title">
+                                        <%= build.race %> 
+                                        vs
+                                        <%= build.enemy %> 
+                                    </h1>
+                                </header>
+                                <div class="card__image">
+                                    <%= build.type %> 
+                                </div>
+                              
+                                    <p class="product__description">
+                                        <%- build.description %>
+                                    </p>
+                                    <p class="created_by">
+                                       
+                                        <% if (build.user) { %>
+                                            <%= build.user.username %>
+                                          <% } %>
+                                    </p>
+                                </div>
+                                
+                                <div class="card__actions">
+                                   
+                                </form>
+                                    
+
+                                </div>
+                            </article>
+                            <% } %>
+                    </div>
+                    <% } else { %>
+                        <h1>No Products Found!</h1>
+                        <% } %>
+            </main>
+  </body>
+</html>

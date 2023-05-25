@@ -1,0 +1,23 @@
+body {
+  padding: 0px;
+  margin: 0px;
+}
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  align-items: center;
+  background-color: rgb(0, 13, 26);
+  color: rgb(183, 208, 231);
+}
+.nav-menu ol {
+  display: flex;
+  list-style-type: none;
+  margin-right: 50px;
+}
+.nav-menu li {
+  padding-left: 50px;
+}
+.form-control {
+  display: flex;
+}
