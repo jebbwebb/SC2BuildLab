@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js",
-    "build": "npm install && npm run build"
+    "build": "./node_modules/.bin/netlify-lambda serve"
   },
   "author": "justin webb",
   "license": "ISC",

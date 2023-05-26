@@ -27,3 +27,4 @@ app.use(checkLoggedIn);
 app.use(buildsRoutes);
 
 app.listen(3000);
+app.use('/.netlify/functions/app.js', router);
