@@ -1,4 +1,4 @@
-[build]
- functions= "functions"
+
  
-  
+  [build]
+  command = "webpack --config webpack.config.js"

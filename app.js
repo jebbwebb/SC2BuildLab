@@ -7,6 +7,8 @@ const path = require('path');
 const session = require('express-session');
 const crypto = require('crypto');
 const flash = require('connect-flash');
+const serverless = require('serverless-http');
+const router = express.Router();
 app.use(
   session({
     secret: 'd93fce953cd7586ee9bd649d934c6141f24f46033f0d2e7e82448c7f6966c65c',
@@ -27,4 +29,3 @@ app.use(checkLoggedIn);
 app.use(buildsRoutes);
 
 app.listen(3000);
-app.use('/.netlify/functions/app.js', router);
