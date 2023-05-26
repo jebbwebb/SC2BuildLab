@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 const { ObjectId } = require('mongodb');
 const User = require('../models/users');
-const bcryptjs = require('bcrptyjs');
+const bcryptjs = require('bcryptjs');
 const saltRounds = 10;
 exports.getLogin = (req, res, next) => {
   res.render('admin/login', {
