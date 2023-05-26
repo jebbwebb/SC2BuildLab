@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 const { ObjectId } = require('mongodb');
 const User = require('../models/users');
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcrptyjs');
 const saltRounds = 10;
 exports.getLogin = (req, res, next) => {
   res.render('admin/login', {
@@ -34,7 +34,7 @@ exports.postRegister = (req, res, next) => {
       }
     })
     .then(() => {
-      bcrypt.hash(password, saltRounds, (err, hashedPassword) => {
+      bcryptjs.hash(password, saltRounds, (err, hashedPassword) => {
         if (err) {
           console.log(err);
           return;
@@ -75,7 +75,7 @@ exports.postLogin = (req, res, next) => {
         req.flash('errorMessage', 'Username does not exsist');
         return Promise.reject('Username does not exsist');
       } else {
-        bcrypt
+        bcryptjs
           .compare(password, user.password)
           .then((isMatch) => {
             if (isMatch) {
