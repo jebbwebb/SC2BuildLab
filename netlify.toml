@@ -1,4 +1,4 @@
 [build]
- command = "webpack --config webpack.config.js"
+ command = "npm install && npm run build"
  
   
