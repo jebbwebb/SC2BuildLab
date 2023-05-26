@@ -9,6 +9,13 @@ const checkLoggedIn = (req, res, next) => {
   res.locals.loggedIn = req.session.loggedIn || false;
   next();
 };
+const requireAuth = (req, res, next) => {
+  if (req.session.loggedIn) {
+    return next();
+  } else {
+    res.redirect('/login');
+  }
+};
 const uri =
   'mongodb+srv://jebbwebb:123456admin@cluster0.gr1tav5.mongodb.net/?retryWrites=true&w=majority';
 mongoose.set('strictQuery', false);
@@ -22,7 +29,7 @@ mongoose
   });
 
 router.use(checkLoggedIn);
-router.get('/add-builds', buildController.getAddBuild);
+router.get('/add-builds', requireAuth, buildController.getAddBuild);
 
 router.get('/builds', buildController.getBuilds);
 router.post('/add-builds', buildController.postAddBuild);
@@ -34,5 +41,6 @@ router.post('/register', userController.postRegister);
 router.post('/login', userController.postLogin);
 router.get('/user-builds', buildController.getUserBuilds);
 router.post('/logout', userController.postLogout);
+router.post('/add-comment', buildController.postAddComment);
 
 module.exports = router;

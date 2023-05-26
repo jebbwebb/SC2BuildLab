@@ -10,6 +10,7 @@ const flash = require('connect-flash');
 const serverless = require('serverless-http');
 const router = express.Router();
 const port = process.env.PORT || 3000;
+
 app.use(
   session({
     secret: 'd93fce953cd7586ee9bd649d934c6141f24f46033f0d2e7e82448c7f6966c65c',
@@ -17,6 +18,7 @@ app.use(
     saveUninitialized: false,
   })
 );
+
 app.use(flash());
 
 const checkLoggedIn = (req, res, next) => {

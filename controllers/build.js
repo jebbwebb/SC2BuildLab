@@ -41,6 +41,7 @@ exports.postAddBuild = (req, res, next) => {
     enemy: enemy,
     postId: generatePostId(),
     user: userId,
+    comments: [],
   });
 
   build
@@ -56,6 +57,7 @@ exports.postAddBuild = (req, res, next) => {
 exports.getBuilds = (req, res, next) => {
   Build.find()
     .populate('user')
+    .populate('comments')
     .then((builds) => {
       res.render('admin/builds', {
         builds: builds,
@@ -112,5 +114,41 @@ exports.postEditBuild = (req, res, next) => {
     })
     .catch((err) => {
       console.log(err);
+    });
+};
+
+exports.postAddComment = (req, res, next) => {
+  const postId = req.body.postId;
+  const content = req.body.content;
+  const userId = req.session.userId;
+
+  User.findById(userId)
+    .then((user) => {
+      if (!user) {
+        console.log('User not found');
+        return res.redirect('/builds');
+      }
+
+      const comment = {
+        username: user.username,
+        content: content,
+      };
+
+      return Build.findOneAndUpdate(
+        { postId: postId },
+        { $push: { comments: comment } },
+        { new: true }
+      );
+    })
+    .then((build) => {
+      if (!build) {
+        console.log('Build not found');
+        return res.redirect('/builds');
+      }
+      res.redirect('/builds');
+    })
+    .catch((err) => {
+      console.log(err);
+      res.redirect('/builds');
     });
 };

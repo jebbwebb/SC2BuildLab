@@ -4,6 +4,17 @@ const { build } = require('joi');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const User = require('../models/users');
+
+const commentSchema = new Schema({
+  username: {
+    type: String,
+    required: true,
+  },
+  content: {
+    type: String,
+    required: true,
+  },
+});
 const buildSchema = new Schema({
   title: {
     type: String,
@@ -29,6 +40,7 @@ const buildSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User',
   },
+  comments: [commentSchema],
   postId: {
     type: String,
     required: true,
