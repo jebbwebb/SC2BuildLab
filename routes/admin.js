@@ -39,8 +39,14 @@ router.get('/login', userController.getLogin);
 router.get('/register', userController.getRegister);
 router.post('/register', userController.postRegister);
 router.post('/login', userController.postLogin);
-router.get('/user-builds', buildController.getUserBuilds);
+router.get('/user-builds', requireAuth, buildController.getUserBuilds);
 router.post('/logout', userController.postLogout);
-router.post('/add-comment', buildController.postAddComment);
+router.post('/add-comment', requireAuth, buildController.postAddComment);
+router.post('/rating', requireAuth, buildController.postRating);
+router.get(
+  '/admin/view-build/:postId',
+  requireAuth,
+  buildController.getViewBuild
+);
 
 module.exports = router;

@@ -11,30 +11,36 @@
     <%- include('navbar.ejs') %>
     <form class="build-form" action="/add-builds" method="POST">
       <div class="form-control">
-        <label for="title">Title</label>
+        <label for="title">Build Name:</label>
         <input type="text" name="title" id="title" />
       </div>
       <div class="form-control">
-        <label for="race">Your Race</label>
-        <input type="radio" name="race" value="terran" />Terran
-        <input type="radio" name="race" value="zerg" />Zerg
-        <input type="radio" name="race" value="protoss" />Protoss
+        <label for="race">Your Race:</label>
+        <select name="race" id="race">
+          <option value="terran">Terran</option>
+          <option value="zerg">Zerg</option>
+          <option value="protoss">Protoss</option>
+        </select>
       </div>
       <div class="form-control">
-        <label>Enemy Race</label>
-        <input type="radio" name="enemy" value="terran" />Terran
-        <input type="radio" name="enemy" value="zerg" />Zerg
-        <input type="radio" name="enemy" value="protoss" />Protoss
+        <label>Enemy Race:</label>
+        <select name="enemy" id="enemy">
+          <option value="terran">Terran</option>
+          <option value="zerg">Zerg</option>
+          <option value="protoss">Protoss</option>
+        </select>
       </div>
       <div class="form-control">
-        <label for="enemy">Build Type</label>
-        <input type="radio" name="type" value="macro" />Macro
-        <input type="radio" name="type" value="timing-attack" />Timing Attack
-        <input type="radio" name="type" value="all-in" />All In
-        <input type="radio" name="type" value="cheese" />Cheese
+        <label for="type">Build Type:</label>
+        <select name="type" id="type">
+          <option value="macro">Macro</option>
+          <option value="timing-attack">Timing Attack</option>
+          <option value="all-in">All In</option>
+          <option value="cheese">Cheese</option>
+        </select>
       </div>
       <div class="form-control">
-        <label for="description">Build Order</label>
+        <label for="description">Build Order:</label>
         <textarea name="description" id="description" rows="5"></textarea>
       </div>
       <script>

@@ -21,3 +21,56 @@ body {
 .form-control {
   display: flex;
 }
+.builds {
+  display: flex;
+  flex-direction: column;
+}
+.build {
+  display: flex;
+  border-bottom: 1px solid black;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.created-by {
+  text-align: center;
+}
+.build-order {
+  margin: 50px;
+}
+.build-description {
+  line-height: 30px;
+}
+.thumbs-up {
+  display: flex;
+  align-items: center;
+  margin: 50px;
+}
+.thumbs-up p {
+  margin-left: 20px;
+}
+.thumbs-up button {
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.thumbs-up button i {
+  color: black;
+}
+
+.thumbs-up button.rated i {
+  color: green;
+}
+.add-comment form {
+  display: flex;
+  align-items: center;
+
+  margin: 50px;
+}

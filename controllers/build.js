@@ -2,6 +2,7 @@ const { MongoClient } = require('mongodb');
 const { ObjectId } = require('mongodb');
 const Build = require('../models/build');
 const { build } = require('joi');
+const User = require('../models/users');
 
 exports.getAddBuild = (req, res, next) => {
   res.render('admin/add-build', {
@@ -61,6 +62,7 @@ exports.getBuilds = (req, res, next) => {
     .then((builds) => {
       res.render('admin/builds', {
         builds: builds,
+        user: req.session.user,
         pageTitle: 'Admin Products',
         path: '/admin/builds',
       });
@@ -150,5 +152,56 @@ exports.postAddComment = (req, res, next) => {
     .catch((err) => {
       console.log(err);
       res.redirect('/builds');
+    });
+};
+exports.postRating = (req, res, next) => {
+  const postId = req.body.postId;
+  const userId = req.session.userId;
+
+  Build.findOne({ postId: postId })
+    .then((build) => {
+      if (!build) {
+        console.log('Build not found');
+        return res.redirect('/builds');
+      }
+
+      const userRatedIndex = build.userRatedBy.indexOf(userId);
+
+      if (userRatedIndex === -1) {
+        build.ratingCount += 1;
+        build.userRatedBy.push(userId);
+      } else {
+        build.ratingCount -= 1;
+        build.userRatedBy.splice(userRatedIndex, 1);
+      }
+
+      return build.save();
+    })
+
+    .catch((err) => {
+      console.log(err);
+      res.redirect('/builds');
+    });
+};
+exports.getViewBuild = (req, res, next) => {
+  const postId = req.params.postId;
+  Build.findOne({ postId: postId })
+    .populate('user')
+    .populate('comments')
+    .then((build) => {
+      if (!build) {
+        console.log('Build not found');
+        return res.redirect('/admin/builds');
+      }
+
+      res.render('admin/view-build', {
+        build: build,
+        user: req.session.user,
+        pageTitle: 'View Build',
+        path: `/admin/view-build/${postId}`,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
     });
 };

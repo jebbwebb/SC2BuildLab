@@ -39,7 +39,18 @@ const buildSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User',
+    required: true,
   },
+  ratingCount: {
+    type: Number,
+    default: 0,
+  },
+  userRatedBy: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+    },
+  ],
   comments: [commentSchema],
   postId: {
     type: String,
