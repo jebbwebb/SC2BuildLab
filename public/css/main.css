@@ -2,6 +2,10 @@ body {
   padding: 0px;
   margin: 0px;
 }
+.nav-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
 .nav-bar {
   display: flex;
   justify-content: space-between;
@@ -10,8 +14,47 @@ body {
   background-color: rgb(0, 13, 26);
   color: rgb(183, 208, 231);
 }
+.logout-button {
+  background-color: transparent;
+  border: none;
+  color: rgb(183, 208, 231);
+  font-size: 1rem;
+}
+.logout-button:hover {
+  color: white;
+}
+.build a {
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: rgb(51, 122, 183);
+}
+.build a:hover {
+  color: black;
+}
+.build p {
+  font-family: 'Lato', sans-serif;
+}
+.form-control label {
+  font-family: 'Montserrat', sans-serif;
+}
+.comment-user {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+.comment-text {
+  font-family: 'Lato', sans-serif;
+}
 .nav-menu {
   display: none;
+  font-family: 'Lato', sans-serif;
+}
+.nav-menu a {
+  text-decoration: none;
+  color: rgb(183, 208, 231);
+}
+.nav-menu a:hover {
+  color: white;
 }
 
 .hamburger {
@@ -103,6 +146,10 @@ body {
   display: flex;
   flex-direction: column;
 }
+.rating {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
 .build {
   display: flex;
   border-bottom: 1px solid black;
@@ -168,6 +215,16 @@ body {
   align-items: center;
 
   margin: 50px;
+}
+.build-description {
+  font-family: 'Lato', sans-serif;
+}
+.view-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+.created-by {
+  font-family: 'Lato', sans-serif;
 }
 .comments {
   min-width: 50%;
@@ -236,6 +293,10 @@ body {
 }
 .form-control textarea {
   height: 120px;
+}
+.build-area {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
 }
 
 .btn {

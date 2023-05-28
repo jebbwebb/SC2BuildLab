@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <title>Document</title>
   </head>
   <body>
@@ -31,7 +34,8 @@
       <h1>No Build Found!</h1>
       <% } %>
       <div class="build-order">
-       <p class="build-description"> Build order:<br><%- build.description %></p>
+       <p class="build-area"> Build order:</p>
+       <p class="build-description"><%- build.description %></p>
       </div>
 
       <div class="thumbs-up">
@@ -55,9 +59,11 @@
           <% if (build.comments.length > 0) { %> <% for (let comment of
           build.comments) { %>
           <div class="comment">
-            <p>
-              <strong><%= comment.username %>:</strong> <%= comment.content %>
-            </p>
+            <p class="comment-user">
+              <strong><%= comment.username %>:</strong></p>
+              <p class="comment-text">
+               <%= comment.content %>
+              </p>
           </div>
           <% } %> <% } else { %>
           <p>No comments yet.Be the first to post!</p>
@@ -72,6 +78,6 @@
       </div>
       </div>
     </main>
-    <script src="/css/script.js"></script>
+    <script src="/css/thumbs.js"></script>
   </body>
 </html>

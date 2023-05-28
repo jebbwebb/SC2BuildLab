@@ -6,12 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title><%= pageTitle %></title>
     <link rel="stylesheet" href="/css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <%- include('navbar.ejs') %>
     <form class="build-form" action="/add-builds" method="POST">
       <div class="form-control">
-        <label for="title">Build Name:</label>
+        <label class="build-name" for="title">Build Name:</label>
         <input type="text" name="title" id="title" />
       </div>
       <div class="form-control">
@@ -46,6 +52,6 @@
 
       <button class="btn" type="submit">Add Build</button>
     </form>
-    <script src="/css/script.js"></script>
+    <script src="/css/textarea.js"></script>
   </body>
 </html>
