@@ -10,6 +10,84 @@ body {
   background-color: rgb(0, 13, 26);
   color: rgb(183, 208, 231);
 }
+.nav-menu {
+  display: none;
+}
+
+.hamburger {
+  display: block;
+
+  position: relative;
+  z-index: 100;
+  user-select: none;
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  color: rgb(199, 36, 177);
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  min-height: 100%;
+  display: block;
+  background-color: rgb(33, 33, 33);
+  z-index: 98;
+  padding-top: 120px;
+  transition: 0.4s;
+}
+.mobile-nav.is-active {
+  left: 0;
+}
+
+.mobile-nav a {
+  display: block;
+  margin: 0 auto 16px;
+  text-align: center;
+  margin-bottom: 16px;
+  width: 100%;
+  max-width: 200px;
+  padding: 12px, 16px;
+  background-color: rgb(199, 36, 177);
+  color: white;
+  text-decoration: none;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 2em;
+}
+
+.hamburger span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  background-color: rgb(238, 201, 196);
+  margin-bottom: 5px;
+  position: relative;
+  border-radius: 6px;
+  z-index: 1;
+  transform-origin: 0 0;
+  transition: 0.4s;
+}
+.hamburger:hover span:nth-child(2) {
+  transform: translateX(10px);
+  background-color: rgb(199, 36, 177);
+}
+.hamburger.is-active span:nth-child(1) {
+  transform: translate(0, -2px) rotate(45deg);
+}
+.hamburger.is-active span:nth-child(3) {
+  transform: translate(-3px, 3px) rotate(-45deg);
+}
+.hamburger.is-active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(15px);
+}
+.hamburger.is-active:hover span {
+  background-color: rgb(199, 36, 177);
+}
 .nav-menu ol {
   display: flex;
   list-style-type: none;
@@ -246,74 +324,16 @@ body {
 .signup-username {
   margin-bottom: 20px;
 }
-.nav-menu-toggle {
-  display: none;
-}
-
-.mobile-nav {
-  display: none;
-}
-
-@media (max-width: 1042px) {
-  .nav-menu {
+@media (min-width: 890px) {
+  .hamburger {
     display: none;
   }
+  .nav-menu {
+    display: flex;
+  }
 }
+
 @media (max-width: 768px) {
-  .nav-menu {
-    display: none;
-  }
-
-  .nav-menu-toggle {
-    display: block;
-    cursor: pointer;
-    padding: 15px;
-  }
-
-  .toggle-icon {
-    display: block;
-    width: 30px;
-    height: 4px;
-    background-color: #fff;
-    position: relative;
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .toggle-icon::before,
-  .toggle-icon::after {
-    content: '';
-    position: absolute;
-    width: 30px;
-    height: 4px;
-    background-color: #fff;
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .toggle-icon::before {
-    top: -10px;
-  }
-
-  .toggle-icon::after {
-    top: 10px;
-  }
-
-  .nav-toggle:checked ~ .nav-menu-toggle .toggle-icon {
-    transform: rotate(45deg);
-  }
-
-  .nav-toggle:checked ~ .nav-menu-toggle .toggle-icon::before {
-    transform: rotate(90deg) translate(5px, 0px);
-  }
-
-  .nav-toggle:checked ~ .nav-menu-toggle .toggle-icon::after {
-    transform: rotate(90deg) translate(-5px, 0px);
-  }
-
-  .mobile-nav {
-    display: block;
-    background-color: rgb(0, 13, 26);
-    padding: 20px;
-  }
   .build {
     font-size: 1rem;
     padding-left: 20px;
@@ -331,7 +351,7 @@ body {
 }
 @media (max-width: 576px) {
   .build {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   .view-title {
     font-size: 0.75em;

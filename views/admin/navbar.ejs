@@ -1,14 +1,36 @@
-<body>
-  <div class="nav-bar">
-    <div class="nav-logo">
-      <h1>SC2 Builds Lab</h1>
-    </div>
-
-    <label for="nav-toggle" class="nav-menu-toggle">
-      <span class="toggle-icon"></span>
-    </label>
-    <div class="nav-menu">
-      <ol>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="nav-bar">
+      <div class="nav-logo"><h1>SC2 Builds Labs</h1></div>
+      <div class="nav-menu">
+        <ol>
+          <li><a href="/builds">Public Builds</a></li>
+          <li><a href="/add-builds">Create A Build</a></li>
+          <li><a href="/user-builds">View Your Builds</a></li>
+          <% if (loggedIn) { %>
+          <li>
+            <form action="/logout" method="POST">
+              <button type="submit">Logout</button>
+            </form>
+          </li>
+          <% } else { %>
+          <li><a href="/login">Login</a></li>
+          <% } %>
+        </ol>
+      </div>
+      <button class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="mobile-nav">
         <li><a href="/builds">Public Builds</a></li>
         <li><a href="/add-builds">Create A Build</a></li>
         <li><a href="/user-builds">View Your Builds</a></li>
@@ -21,24 +43,8 @@
         <% } else { %>
         <li><a href="/login">Login</a></li>
         <% } %>
-      </ol>
+      </nav>
     </div>
-  </div>
-
-  <nav class="mobile-nav">
-    <ul>
-      <li><a href="/builds">Public Builds</a></li>
-      <li><a href="/add-builds">Create A Build</a></li>
-      <li><a href="/user-builds">View Your Builds</a></li>
-      <% if (loggedIn) { %>
-      <li>
-        <form action="/logout" method="POST">
-          <button type="submit">Logout</button>
-        </form>
-      </li>
-      <% } else { %>
-      <li><a href="/login">Login</a></li>
-      <% } %>
-    </ul>
-  </nav>
-</body>
+    <script src="/css/script.js"></script>
+  </body>
+</html>
