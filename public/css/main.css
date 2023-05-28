@@ -38,6 +38,17 @@ body {
 .form-control label {
   font-family: 'Montserrat', sans-serif;
 }
+.comment-btn {
+  font-family: 'Montserrat', sans-serif;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 20px;
+}
 .comment-user {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
