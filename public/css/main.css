@@ -74,3 +74,148 @@ body {
 
   margin: 50px;
 }
+.comments {
+  margin: 50px;
+  padding-left: 20px;
+  border: 1px solid black;
+}
+.comment-text {
+  width: 500px;
+  height: 100px;
+  margin-left: 20px;
+}
+.comment-button {
+  margin-left: 20px;
+}
+
+.build-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-control {
+  margin-bottom: 20px;
+}
+
+.form-control label {
+  display: block;
+  font-weight: bold;
+}
+
+.form-control input,
+.form-control textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.enemy-select {
+  width: 200px;
+  height: 30px;
+  margin-left: 35px;
+}
+.race-select {
+  height: 30px;
+  width: 200px;
+  margin-left: 50px;
+}
+.type-select {
+  height: 30px;
+  width: 200px;
+  margin-left: 45px;
+}
+.form-control textarea {
+  height: 120px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 100px;
+}
+
+.login-title h1 {
+  text-align: center;
+  margin-top: 0;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+}
+
+.login label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.login input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.login button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login button:hover {
+  background-color: #45a049;
+}
+
+.signup-button {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: #666;
+  text-decoration: none;
+}
+.register-button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.error-message {
+  color: #ff0000;
+  margin-top: 10px;
+  text-align: center;
+}
+.signup-username {
+  margin-bottom: 20px;
+}

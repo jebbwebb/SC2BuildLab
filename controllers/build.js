@@ -147,7 +147,7 @@ exports.postAddComment = (req, res, next) => {
         console.log('Build not found');
         return res.redirect('/builds');
       }
-      res.redirect('/builds');
+      res.redirect(`/admin/view-build/${postId}`);
     })
     .catch((err) => {
       console.log(err);
@@ -177,6 +177,9 @@ exports.postRating = (req, res, next) => {
 
       return build.save();
     })
+    .then(() => {
+      res.redirect(`/admin/view-build/${postId}`);
+    })
 
     .catch((err) => {
       console.log(err);
@@ -193,12 +196,13 @@ exports.getViewBuild = (req, res, next) => {
         console.log('Build not found');
         return res.redirect('/admin/builds');
       }
-
+      const userRated = build.userRatedBy.includes(req.session.userId);
       res.render('admin/view-build', {
         build: build,
         user: req.session.user,
         pageTitle: 'View Build',
         path: `/admin/view-build/${postId}`,
+        userRated: userRated,
       });
     })
     .catch((err) => {

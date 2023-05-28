@@ -9,26 +9,24 @@
   </head>
   <body>
     <%- include('navbar.ejs') %>
-    <h1>Login</h1>
-    <form action="/login" method="POST">
-        <div>
+    <div class="login-container">
+      <div class="login-title"><h1>Login</h1></div>
+
+      <form action="/login" method="POST">
+        <div class="login">
           <label for="username">Username</label>
-          <input type="text" id="username" name="username" >
+          <input type="text" id="username" name="username" />
+
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" />
+
+          <button type="submit">Login</button>
         </div>
-        <div>
-          <label for="password" >Password</label>
-          <input type="password" id="password" name="password" >
-        </div>
-        <button type="submit">Login</button>
-        
       </form>
-      <a href="/register">Sign Up</a>
+      <a class="signup-button" href="/register">Sign Up</a>
       <% if (typeof errorMessage !== 'undefined') { %>
-        <div class="error-message">
-          <%= errorMessage %>
-        </div>
+      <div class="error-message"><%= errorMessage %></div>
       <% } %>
-    </body>
-    </html>
+    </div>
   </body>
 </html>

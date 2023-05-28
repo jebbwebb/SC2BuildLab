@@ -10,45 +10,47 @@
   <body>
     <body>
         <%- include('navbar.ejs') %>
-        
 
             <main>
                 <% if (builds.length > 0) { %>
-                    <div class="grid">
+                    <div class="builds container">
                         <% for (let build of builds) { %>
-                            <article class="card product-item">
-                                <header class="card__header">
-                                    <h1 class="product__title">
+                            <div class="builds">
+                                <div class="build">
+                                  <a href="/admin/view-build/<%= build.postId %>"><%= build.title %></a>
+                                    <p>
                                         <%= build.race %> 
                                         vs
                                         <%= build.enemy %> 
-                                    </h1>
-                                </header>
-                                <div class="card__image">
-                                    <%= build.type %> 
+                                      </p>
+                                      <p class="build-type"><%= build.type %> </p>
+                                     
                                 </div>
-                              
-                                    <p class="product__description">
-                                        <%- build.description %>
-                                    </p>
-                                    <p class="created_by">
-                                       
-                                        
-                                    </p>
                                 </div>
+                                <div class="no-builds">
+                                  <% } %>
                                 
-                                <div class="card__actions">
-                                   
-                                </form>
+                              <% } else { %>
+                                <h1>No Builds Found!</h1>
+                              <% } %>
+                            </div>
+                          </main>
+                        </body>
+                        </html>
                                     
+                               
+                              
+                                   
+                                   
+                                
+                              
+                                
+                                
+                                
+                                  
+                                
+                                
+           
+            
+  
 
-                                </div>
-                            </article>
-                            <% } %>
-                    </div>
-                    <% } else { %>
-                        <h1>No Products Found!</h1>
-                        <% } %>
-            </main>
-  </body>
-</html>
