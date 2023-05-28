@@ -18,18 +18,25 @@
                             <div class="builds">
                                 <div class="build">
                                   <a href="/admin/view-build/<%= build.postId %>"><%= build.title %></a>
+                                  <div class="build-info">
                                     <p>
-                                        <%= build.race %> 
-                                        vs
-                                        <%= build.enemy %> 
+                                        <%= build.race %>v<%= build.enemy %> 
+                                        
+                                        
+                                        <p class="created_by">
+                                  
+                                          <% if (build.user) { %>
+                                           Created by:   <%= build.user.username %>
+                                            <% } %>
                                       </p>
+                                      
+                                      </p>
+                                    </div>
+                                    <div class="build-type">
                                       <p class="build-type"><%= build.type %> </p>
-                                      <p class="created_by">
-                                        <% if (build.user) { %>
-                                         Created by:   <%= build.user.username %>
-                                          <% } %>
-                                    </p>
+                                    </div>
                                 </div>
+                               
                                 </div>
                                 <div class="no-builds">
                                   <% } %>
